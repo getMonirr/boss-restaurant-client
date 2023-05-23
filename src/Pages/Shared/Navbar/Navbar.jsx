@@ -74,7 +74,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`px-14 fixed z-50 w-full text-white backdrop-blur-sm transition transition-all ${
+      className={`px-14 fixed z-50 w-full text-white backdrop-blur-sm transition-all ${
         small ? "py-0" : "py-4"
       }`}
       style={{ background: "rgba(21, 21, 21, 0.5)" }}
