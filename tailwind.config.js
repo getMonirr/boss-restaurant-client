@@ -22,6 +22,7 @@ export default {
         "boss-btn-color": "#1F2937",
         "boss-rating": "#CD9003",
         "boss-footer": "#111827",
+        "boss-cart-btn": "#BB8506",
       },
     },
   },

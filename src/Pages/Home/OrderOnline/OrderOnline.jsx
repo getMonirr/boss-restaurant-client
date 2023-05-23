@@ -37,18 +37,33 @@ const OrderOnline = () => {
         >
           <SwiperSlide>
             <img className="mx-auto" src={slider1} alt="slider1" />
+            <p className=" uppercase bottom-16 left-[40%] absolute font-cinzel text-4xl text-white drop-shadow-[0_1px_1px_rgb(0,0,0)]">
+              salad
+            </p>
           </SwiperSlide>
           <SwiperSlide>
             <img className="mx-auto" src={slider2} alt="slider2" />
+            <p className=" uppercase bottom-16 left-[40%] absolute font-cinzel text-4xl text-white drop-shadow-[0_1px_1px_rgb(0,0,0)]">
+              Soups
+            </p>
           </SwiperSlide>
           <SwiperSlide>
             <img className="mx-auto" src={slider3} alt="slider3" />
+            <p className=" uppercase bottom-16 left-[40%] absolute font-cinzel text-4xl text-white drop-shadow-[0_1px_1px_rgb(0,0,0)]">
+              Pizzas
+            </p>
           </SwiperSlide>
           <SwiperSlide>
             <img className="mx-auto" src={slider4} alt="slider4" />
+            <p className=" uppercase bottom-16 left-[40%] absolute font-cinzel text-4xl text-white drop-shadow-[0_1px_1px_rgb(0,0,0)]">
+              Deserts
+            </p>
           </SwiperSlide>
           <SwiperSlide>
             <img className="mx-auto" src={slider5} alt="slider5" />
+            <p className=" uppercase bottom-16 left-[40%] absolute font-cinzel text-4xl text-white drop-shadow-[0_1px_1px_rgb(0,0,0)]">
+              salad
+            </p>
           </SwiperSlide>
           <div className="flex justify-center items-center my-8 gap-3"></div>
         </Swiper>
