@@ -1,0 +1,19 @@
+.thumb img{
+    height: unset !important;
+}
+.thumbs {
+    @apply flex justify-center items-center
+}
+
+.carousel .control-dots{
+    @apply mb-28
+}
+
+.carousel .control-dots .dot{
+    height: 15px;
+    width: 15px;
+    @apply bg-dark-05
+}
+.carousel .control-dots .selected{
+    @apply bg-boss-blue
+}

@@ -1,0 +1,28 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 370px;
+  height: 450px;
+  object-fit: cover;
+}
+
+/* .swiper-button-disabled:not(:disabled) {
+  @apply bg-boss-blue;
+} */
+
+.swiper-pagination-bullet {
+  @apply h-[15px] w-[15px] bg-dark-05;
+}
+.swiper-pagination-bullet-active {
+  @apply bg-boss-blue;
+}
