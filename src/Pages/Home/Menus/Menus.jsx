@@ -13,9 +13,9 @@ const Menus = () => {
   }, []);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-3">
       <SectionHeading title={"Check it out"} heading={"FROM OUR MENU"} />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-16 divide-y-2 lg:divide-y-0">
         {menus
           .filter((m) => m.category === "popular")
           .map((menu) => (

@@ -1,0 +1,21 @@
+footer {
+  background: linear-gradient(
+    to right,
+    #1f2937 0%,
+    #1f2937 50%,
+    #111827 50%,
+    #111827 100%
+  );
+}
+
+@media (max-width: 640px) {
+  footer {
+    background: linear-gradient(
+      to top,
+      #1f2937 0%,
+      #1f2937 50%,
+      #111827 50%,
+      #111827 100%
+    );
+  }
+}

@@ -2,3 +2,20 @@
 .swiper-button-prev:after {
   @apply text-4xl;
 }
+
+@media (max-width: 610px) {
+  .mobile-breakPoint {
+    width: 200px;
+    gap: 10px;
+  }
+}
+
+.quoteIcon {
+  font-size: 60px;
+}
+
+@media only screen and (max-width: 400px) {
+  .quoteIcon {
+    font-size: 35px;
+  }
+}

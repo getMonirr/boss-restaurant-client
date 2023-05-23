@@ -74,8 +74,8 @@ const Navbar = () => {
 
   return (
     <div
-      className={`px-14 fixed z-50 w-full text-white backdrop-blur-sm transition-all ${
-        small ? "py-0" : "py-4"
+      className={`lg:px-14 fixed z-50 w-full text-white backdrop-blur-sm transition-all ${
+        small ? "py-1 lg:py-0" : "py-3 lg:py-4"
       }`}
       style={{ background: "rgba(21, 21, 21, 0.5)" }}
     >
@@ -100,7 +100,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 uppercase"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-dark-01 rounded-box w-52 uppercase"
             >
               {navItems}
             </ul>
@@ -110,14 +110,14 @@ const Navbar = () => {
             className="btn btn-ghost text-xl hover:bg-transparent uppercase font-cinzel"
           >
             <div className="text-start">
-              <h1 className=" text-[32px] tracking-widest">bistro boss</h1>
-              <p className="text-2xl tracking-[0.38em] font-normal">
+              <h1 className=" text-2xl lg:text-[32px] tracking-widest">bistro boss</h1>
+              <p className="lg:text-2xl tracking-[0.25em] lg:tracking-[0.38em] font-normal">
                 restaurant
               </p>
             </div>
           </Link>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end hidden lg:block">
           <ul className="menu menu-horizontal px-1 uppercase">{navItems}</ul>
         </div>
       </div>

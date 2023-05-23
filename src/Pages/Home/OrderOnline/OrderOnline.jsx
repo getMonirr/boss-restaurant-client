@@ -19,14 +19,23 @@ import slider5 from "../../../assets/home/slide5.jpg";
 
 const OrderOnline = () => {
   return (
-    <div className="container mx-auto my-32">
+    <div className="container mx-auto lg:my-32 px-3 lg:px-0">
       <SectionHeading
         title={"From 11:00am to 10:00pm"}
         heading={"order online"}
       />
       <>
         <Swiper
-          slidesPerView={4}
+          breakpoints={{
+            640: {
+              width: 640,
+              slidesPerView: 1,
+            },
+            768: {
+              width: 768,
+              slidesPerView: 2,
+            },
+          }}
           spaceBetween={30}
           freeMode={true}
           pagination={{

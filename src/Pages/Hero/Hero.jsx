@@ -12,13 +12,13 @@ const Hero = () => {
     <div className="">
       <Carousel showArrows={false} showStatus={false}>
         <div>
-          <img className="h-[804px] object-cover object-center" src={slider1} />
+          <img className="  h-[400px] lg:h-[804px] object-cover object-center" src={slider1} />
         </div>
         <div>
-          <img className="h-[804px] object-cover object-center" src={slider2} />
+          <img className="  h-[400px] lg:h-[804px] object-cover object-center" src={slider2} />
         </div>
         <div>
-          <img className="h-[804px] object-cover object-center" src={slider3} />
+          <img className="  h-[400px] lg:h-[804px] object-cover object-center" src={slider3} />
         </div>
       </Carousel>
     </div>

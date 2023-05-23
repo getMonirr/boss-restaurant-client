@@ -4,7 +4,7 @@ import FeaturedImg from "../../../assets/home/featured.jpg";
 const Featured = () => {
   return (
     <div
-      className="pb-32 pt-4 mt-32 bg-fixed"
+      className="pb-32 pt-4 mt-16 lg:mt-32 bg-fixed"
       style={{
         background: `linear-gradient(0deg, rgba(21, 21, 21, 0.7), rgba(21, 21, 21, 0.7)), url(${FeaturedImg})`,
         backgroundAttachment: "fixed",
@@ -15,11 +15,11 @@ const Featured = () => {
         title={"Check It Out"}
         heading={"Form Our menu"}
       />
-      <div className="container mx-auto flex justify-evenly items-center text-white gap-16">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-evenly items-center text-white gap-16 px-3 lg:px-0">
         <div>
           <img src={FeaturedImg} alt="Featured img" />
         </div>
-        <div>
+        <div className="space-y-3 lg:space-y-0 text-center lg:text-start">
           <h3>March 20, 2023</h3>
           <h2>WHERE CAN I GET SOME?</h2>
           <p>

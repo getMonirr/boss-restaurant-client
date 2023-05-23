@@ -6,7 +6,7 @@
 }
 
 .carousel .control-dots{
-    @apply mb-28
+    @apply lg:mb-28
 }
 
 .carousel .control-dots .dot{
