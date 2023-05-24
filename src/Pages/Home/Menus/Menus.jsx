@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SectionHeading from "../../Shared/SectionHeading/SectionHeading";
-import SingleMenu from "./SingleMenu";
+import SingleMenu from "../../Shared/SingleMenu/SingleMenu";
 import BossBtn from "../../../components/BossBtn";
 
 const Menus = () => {

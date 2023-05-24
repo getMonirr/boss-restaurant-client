@@ -1,7 +1,7 @@
 import CoverPage from "../../Shared/CoverPage/CoverPage";
 import useMenus from "../../../Hooks/useMenu";
 import SectionHeading from "../../Shared/SectionHeading/SectionHeading";
-import SingleMenu from "../../Home/Menus/SingleMenu";
+import SingleMenu from "../../Shared/SingleMenu/SingleMenu";
 import BossBtn from "../../../components/BossBtn";
 // bg image
 import BannerImg from "../../../assets/menu/banner3.jpg";

@@ -1,4 +1,4 @@
-const RecommendsCard = ({ recommend }) => {
+const MenuCard = ({ recommend }) => {
   const { name, recipe, image } = recommend;
   return (
     <div className="card w-full bg-dark-07 shadow-xl">
@@ -22,4 +22,4 @@ const RecommendsCard = ({ recommend }) => {
   );
 };
 
-export default RecommendsCard;
+export default MenuCard;
