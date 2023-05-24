@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionHeading from "../../Shared/SectionHeading/SectionHeading";
 import SingleMenu from "./SingleMenu";
+import BossBtn from "../../../components/BossBtn";
 
 const Menus = () => {
   const [menus, setMenus] = useState([]);
@@ -22,11 +23,7 @@ const Menus = () => {
             <SingleMenu key={menu._id} menu={menu} />
           ))}
       </div>
-      <div className="text-center">
-        <button className="btn btn-outline border-0 border-b-[3px] px-8 transition-all border-b-boss-btn-color">
-          View Full Menu
-        </button>
-      </div>
+      <BossBtn>View Full Menu</BossBtn>
     </div>
   );
 };
