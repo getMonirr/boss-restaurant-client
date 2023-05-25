@@ -37,7 +37,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className="hover:bg-transparent font-extrabold hover:text-boss-yellow"
-          to="/our-shop"
+          to="our-shop"
         >
           Our Shop
         </NavLink>
@@ -67,7 +67,9 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <button className="">Sign Out</button>
+        <Link to="/login">
+          <button className="btn">Log in</button>
+        </Link>
       </li>
     </>
   );
@@ -110,7 +112,9 @@ const Navbar = () => {
             className="btn btn-ghost text-xl hover:bg-transparent uppercase font-cinzel"
           >
             <div className="text-start">
-              <h1 className=" text-2xl lg:text-[32px] tracking-widest">bistro boss</h1>
+              <h1 className=" text-2xl lg:text-[32px] tracking-widest">
+                bistro boss
+              </h1>
               <p className="lg:text-2xl tracking-[0.25em] lg:tracking-[0.38em] font-normal">
                 restaurant
               </p>
@@ -118,7 +122,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-end hidden lg:block">
-          <ul className="menu menu-horizontal px-1 uppercase">{navItems}</ul>
+          <ul className="menu menu-horizontal px-1 uppercase items-center">
+            {navItems}
+          </ul>
         </div>
       </div>
     </div>

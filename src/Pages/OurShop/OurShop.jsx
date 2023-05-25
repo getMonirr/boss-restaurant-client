@@ -1,15 +1,23 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import "./OurShop.css"
 
 import CoverPage from "../Shared/CoverPage/CoverPage";
 import shopBg from "../../assets/shop/banner2.jpg";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import useMenus from "../../Hooks/useMenu";
 import MenuCard from "../Shared/Card/MenuCard";
+import { useParams } from "react-router-dom";
 
 const OurShop = () => {
+  const { category } = useParams();
   const tabsMenu = ["salad", "pizza", "soup", "dessert", "drinks"];
-  const [tabIndex, setTabIndex] = useState(0);
+
+  const initialTabIndex = tabsMenu.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(
+    initialTabIndex >= 0 ? initialTabIndex : 0
+  );
+
   const { menus } = useMenus();
   const [categoryMenu, setCategoryMenu] = useState([]);
 
@@ -18,12 +26,16 @@ const OurShop = () => {
       (m) => m.category === tabsMenu[tabIndex]
     );
     setCategoryMenu(filteredCategory);
-  }, [tabIndex]);
+  }, [menus, tabIndex]);
+
+  // use memo
+  const filteredCategory = useMemo(() => {
+    return menus.filter((m) => m.category === tabsMenu[tabIndex]);
+  }, [menus, tabIndex]);
 
   useEffect(() => {
-    const filteredCategory = menus.filter((m) => m.category === tabsMenu[0]);
     setCategoryMenu(filteredCategory);
-  }, [menus]);
+  }, [filteredCategory]);
 
   return (
     <div>

@@ -3,6 +3,8 @@ import Main from "../Layouts/Main";
 import Home from "../Pages/Home/Home/Home";
 import OurMenu from "../Pages/OurMenu/OurMenu/OurMenu";
 import OurShop from "../Pages/OurShop/OurShop";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/SignUp/SignUp";
 
 const Routes = createBrowserRouter([
   {
@@ -18,8 +20,16 @@ const Routes = createBrowserRouter([
         element: <OurMenu />,
       },
       {
-        path: "our-shop",
+        path: "our-shop/:category",
         element: <OurShop />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "sign-up",
+        element: <SignUp />,
       },
     ],
   },

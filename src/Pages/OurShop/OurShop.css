@@ -1,0 +1,10 @@
+.react-tabs__tab-list {
+  @apply flex justify-center items-center mb-12 border-none;
+}
+.react-tabs__tab {
+  @apply uppercase text-2xl font-bold;
+}
+.react-tabs__tab--selected {
+  @apply text-boss-cart-btn border-b-4 border-t-0 border-l-0 border-r-0 bg-red-400 bg-opacity-0;
+  border-bottom: 4px solid;
+}

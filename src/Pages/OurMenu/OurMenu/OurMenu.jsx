@@ -9,6 +9,7 @@ import dessertBg from "../../../assets/menu/dessert-bg.jpeg";
 import pizzaBg from "../../../assets/menu/pizza-bg.jpg";
 import saladBg from "../../../assets/menu/salad-bg.jpg";
 import soupBg from "../../../assets/menu/soup-bg.jpg";
+import { Link } from "react-router-dom";
 
 const OurMenu = () => {
   const { menus } = useMenus();
@@ -56,7 +57,9 @@ const OurMenu = () => {
           ))}
         </div>
         <div className="mb-16">
-          <BossBtn>View Full Menu</BossBtn>
+          <Link to={`/our-shop/dessert`}>
+            <BossBtn>View Full Menu</BossBtn>
+          </Link>
         </div>
       </div>
 
@@ -76,7 +79,9 @@ const OurMenu = () => {
           ))}
         </div>
         <div className="mb-16">
-          <BossBtn>View Full Menu</BossBtn>
+          <Link to={`/our-shop/pizza`}>
+            <BossBtn>View Full Menu</BossBtn>
+          </Link>
         </div>
       </div>
 
@@ -96,7 +101,9 @@ const OurMenu = () => {
           ))}
         </div>
         <div className="mb-16">
-          <BossBtn>View Full Menu</BossBtn>
+          <Link to={`/our-shop/salad`}>
+            <BossBtn>View Full Menu</BossBtn>
+          </Link>
         </div>
       </div>
 
@@ -116,7 +123,9 @@ const OurMenu = () => {
           ))}
         </div>
         <div className="mb-16">
-          <BossBtn>View Full Menu</BossBtn>
+          <Link to={`/our-shop/soup`}>
+            <BossBtn>View Full Menu</BossBtn>
+          </Link>
         </div>
       </div>
     </>
