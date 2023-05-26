@@ -37,7 +37,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className="hover:bg-transparent font-extrabold hover:text-boss-yellow"
-          to="our-shop"
+          to="our-shop/salad"
         >
           Our Shop
         </NavLink>

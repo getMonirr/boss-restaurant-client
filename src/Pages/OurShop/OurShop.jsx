@@ -1,10 +1,10 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import "./OurShop.css"
+import "./OurShop.css";
 
 import CoverPage from "../Shared/CoverPage/CoverPage";
 import shopBg from "../../assets/shop/banner2.jpg";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import useMenus from "../../Hooks/useMenu";
 import MenuCard from "../Shared/Card/MenuCard";
 import { useParams } from "react-router-dom";
@@ -20,22 +20,44 @@ const OurShop = () => {
 
   const { menus } = useMenus();
   const [categoryMenu, setCategoryMenu] = useState([]);
+  const [paginatedMenu, setPaginatedMenu] = useState([]);
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const filteredCategory = menus.filter(
       (m) => m.category === tabsMenu[tabIndex]
     );
     setCategoryMenu(filteredCategory);
+    setPaginatedMenu(filteredCategory.slice(0, perPage)); // Initialize paginated menu with the first page
+    setCurrentPage(1); // Set current page to 1 initially
   }, [menus, tabIndex]);
 
-  // use memo
-  const filteredCategory = useMemo(() => {
-    return menus.filter((m) => m.category === tabsMenu[tabIndex]);
-  }, [menus, tabIndex]);
+  // pagination
+  const totalMenu = categoryMenu.length;
+  const perPage = 4;
+  const totalPage = Math.ceil(totalMenu / perPage);
+  // const totalPaginationBtn = [...Array(totalPage).keys()];
+  console.log(totalMenu, totalPage);
 
-  useEffect(() => {
-    setCategoryMenu(filteredCategory);
-  }, [filteredCategory]);
+  // handle pagination
+  const handlePagination = (action) => {
+    let newPage;
+    if (action === "prev") {
+      newPage = currentPage - 1;
+    } else if (action === "next") {
+      newPage = currentPage + 1;
+    }
+
+    if (newPage >= 1 && newPage <= totalPage) {
+      const startIndex = (newPage - 1) * perPage;
+      const endIndex = startIndex + perPage;
+      const paginatedItems = categoryMenu.slice(startIndex, endIndex);
+      setPaginatedMenu(paginatedItems);
+      setCurrentPage(newPage);
+      console.log(startIndex, endIndex, newPage);
+    }
+  };
 
   return (
     <div>
@@ -54,13 +76,31 @@ const OurShop = () => {
           {tabsMenu.map((m, index) => (
             <TabPanel key={index}>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-16 lg:gap-6 px-3 lg:px-0">
-                {categoryMenu.map((catMenu) => (
+                {paginatedMenu.map((catMenu) => (
                   <MenuCard key={catMenu._id} recommend={catMenu} />
                 ))}
               </div>
             </TabPanel>
           ))}
         </Tabs>
+        <div className="my-8 space-x-4">
+          <button
+            onClick={() => handlePagination("prev")}
+            className="btn btn-primary rounded-full px-[18px] text-black bg-boss-cart-btn border-1 border-black"
+            disabled={currentPage === 1} // Disable previous button on the first page
+          >
+            &lt;
+          </button>
+          <span>{`${currentPage}/${totalPage}`}</span>{" "}
+          {/* Display current page and total pages */}
+          <button
+            onClick={() => handlePagination("next")}
+            className="btn btn-primary rounded-full px-[18px] bg-boss-cart-btn border-1 border-black text-black"
+            disabled={currentPage === totalPage} // Disable next button on the last page
+          >
+            &gt;
+          </button>
+        </div>
       </div>
     </div>
   );
