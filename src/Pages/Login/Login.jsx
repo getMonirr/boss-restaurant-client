@@ -13,16 +13,24 @@ import "./Login.css";
 import loginBg from "../../assets/others/authentication.png";
 import loginBanner from "../../assets/others/authentication2.png";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const [isValid, setIsValid] = useState(false);
+  const { logInUser } = useAuth();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    if (data.email && data.password) {
+      logInUser(data.email, data.password)
+        .then((result) => console.log(result.user))
+        .catch((err) => console.log(err));
+    }
+  };
 
   // validate captcha
   const handleValidateCaptcha = (e) => {

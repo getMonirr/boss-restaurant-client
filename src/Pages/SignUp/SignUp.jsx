@@ -5,14 +5,47 @@ import { FaFacebookF, FaGoogle, FaGithub } from "react-icons/fa";
 import loginBg from "../../assets/others/authentication.png";
 import loginBanner from "../../assets/others/authentication2.png";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const SignUp = () => {
+  const { googleSignIn, createUser, updateUserInfo } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+
+    // create user
+    if (data.email && data.password) {
+      createUser(data.email, data.password)
+        .then((result) => {
+          console.log(result.user);
+
+          // update/set user name
+          if (result.user) {
+            updateUserInfo(result.user, data.name)
+              .then(() => {
+                console.log(result.user, "successful");
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
+  // handle google sign in
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => console.log(result.user))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div
@@ -103,7 +136,10 @@ const SignUp = () => {
                 <div className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer">
                   <FaFacebookF />
                 </div>
-                <div className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer">
+                <div
+                  onClick={handleGoogleSignIn}
+                  className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer"
+                >
                   <FaGoogle />
                 </div>
                 <div className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer">

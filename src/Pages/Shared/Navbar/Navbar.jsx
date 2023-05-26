@@ -2,9 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import order from "../../../assets/icon/order.png";
 import "./Navbar.css";
 import { useEffect, useState } from "react";
+import useAuth from "../../../Hooks/useAuth";
 
 const Navbar = () => {
   const [small, setSmall] = useState(false);
+  const { user, logOutUser } = useAuth();
 
   // for shrink header
   useEffect(() => {
@@ -14,6 +16,14 @@ const Navbar = () => {
       );
     }
   }, []);
+
+  const handleSignOut = () => {
+    logOutUser()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   // navItems
   const navItems = (
@@ -67,9 +77,15 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <Link to="/login">
-          <button className="btn">Log in</button>
-        </Link>
+        {user ? (
+          <button className="btn btn-primary" onClick={handleSignOut}>
+            Sign Out
+          </button>
+        ) : (
+          <Link to="/login">
+            <button className="btn">Log in</button>
+          </Link>
+        )}
       </li>
     </>
   );
