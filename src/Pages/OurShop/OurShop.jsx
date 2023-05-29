@@ -38,7 +38,6 @@ const OurShop = () => {
   const perPage = 4;
   const totalPage = Math.ceil(totalMenu / perPage);
   // const totalPaginationBtn = [...Array(totalPage).keys()];
-  console.log(totalMenu, totalPage);
 
   // handle pagination
   const handlePagination = (action) => {
@@ -55,7 +54,6 @@ const OurShop = () => {
       const paginatedItems = categoryMenu.slice(startIndex, endIndex);
       setPaginatedMenu(paginatedItems);
       setCurrentPage(newPage);
-      console.log(startIndex, endIndex, newPage);
     }
   };
 
