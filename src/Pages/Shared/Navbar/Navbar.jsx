@@ -4,6 +4,7 @@ import "./Navbar.css";
 import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import useCart from "../../../Hooks/useCart";
+import BossLogo from "../../../components/BossLogo";
 
 const Navbar = () => {
   const [small, setSmall] = useState(false);
@@ -75,7 +76,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className="hover:bg-transparent font-extrabold hover:text-boss-yellow"
-          to="/order"
+          to="/dashboard"
         >
           {/* <img className="h-10" src={order} alt="order" /> */}
           <div className="indicator">
@@ -150,14 +151,7 @@ const Navbar = () => {
             to="/"
             className="btn btn-ghost text-xl hover:bg-transparent uppercase font-cinzel"
           >
-            <div className="text-start">
-              <h1 className=" text-2xl lg:text-[32px] tracking-widest">
-                bistro boss
-              </h1>
-              <p className="lg:text-2xl tracking-[0.25em] lg:tracking-[0.38em] font-normal">
-                restaurant
-              </p>
-            </div>
+            <BossLogo />
           </Link>
         </div>
         <div className="navbar-end hidden lg:block">

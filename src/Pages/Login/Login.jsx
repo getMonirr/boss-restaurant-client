@@ -12,12 +12,16 @@ import "./Login.css";
 
 import loginBg from "../../assets/others/authentication.png";
 import loginBanner from "../../assets/others/authentication2.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const [isValid, setIsValid] = useState(false);
   const { logInUser } = useAuth();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
 
   const {
     register,
@@ -27,7 +31,11 @@ const Login = () => {
   const onSubmit = (data) => {
     if (data.email && data.password) {
       logInUser(data.email, data.password)
-        .then((result) => console.log(result.user))
+        .then((result) => {
+          if (result.user) {
+            navigate(from, { replace: true });
+          }
+        })
         .catch((err) => console.log(err));
     }
   };

@@ -5,6 +5,8 @@ import OurMenu from "../Pages/OurMenu/OurMenu/OurMenu";
 import OurShop from "../Pages/OurShop/OurShop";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import Dashboard from "../Layouts/Dashboard";
+import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
 
 const Routes = createBrowserRouter([
   {
@@ -30,6 +32,20 @@ const Routes = createBrowserRouter([
       {
         path: "sign-up",
         element: <SignUp />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <h2>hi, welcome</h2>,
+      },
+      {
+        path: "manage-items",
+        element: <ManageItems />,
       },
     ],
   },

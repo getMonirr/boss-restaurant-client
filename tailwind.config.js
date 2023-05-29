@@ -23,6 +23,7 @@ export default {
         "boss-rating": "#CD9003",
         "boss-footer": "#111827",
         "boss-cart-btn": "#BB8506",
+        "boss-admin": "#D1A054"
       },
     },
   },
