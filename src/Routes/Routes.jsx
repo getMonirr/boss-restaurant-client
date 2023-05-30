@@ -6,7 +6,9 @@ import OurShop from "../Pages/OurShop/OurShop";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Layouts/Dashboard";
-import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
+import ManageItems from "../Pages/Dashboard/Admin/ManageItems/ManageItems";
+import MyCart from "../Pages/Dashboard/Users/MyCart/MyCart";
+import AllUsers from "../Pages/Dashboard/Admin/AllUsers/AllUsers";
 
 const Routes = createBrowserRouter([
   {
@@ -40,12 +42,20 @@ const Routes = createBrowserRouter([
     element: <Dashboard />,
     children: [
       {
+        path: "all-users",
+        element: <AllUsers />,
+      },
+      {
         path: "/dashboard",
         element: <h2>hi, welcome</h2>,
       },
       {
         path: "manage-items",
         element: <ManageItems />,
+      },
+      {
+        path: "my-cart",
+        element: <MyCart />,
       },
     ],
   },

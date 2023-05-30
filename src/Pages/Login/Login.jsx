@@ -6,14 +6,13 @@ import {
   validateCaptcha,
 } from "react-simple-captcha";
 
-import { FaFacebookF, FaGoogle, FaGithub } from "react-icons/fa";
-
 import "./Login.css";
 
 import loginBg from "../../assets/others/authentication.png";
 import loginBanner from "../../assets/others/authentication2.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import SocialSignIn from "../../components/SocialSignIn";
 
 const Login = () => {
   const [isValid, setIsValid] = useState(false);
@@ -138,17 +137,7 @@ const Login = () => {
                 </Link>
               </p>
               <p>Or sign in with</p>
-              <div className="flex justify-between items-center max-w-[200px] mx-auto mt-4">
-                <div className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer">
-                  <FaFacebookF />
-                </div>
-                <div className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer">
-                  <FaGoogle />
-                </div>
-                <div className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer">
-                  <FaGithub />
-                </div>
-              </div>
+              <SocialSignIn />
             </div>
           </form>
         </div>

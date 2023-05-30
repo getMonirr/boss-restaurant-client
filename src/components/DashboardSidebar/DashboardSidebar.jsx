@@ -1,14 +1,28 @@
 import { NavLink } from "react-router-dom";
 import "./DashboardSidebar.css";
 
-import { FaBook, FaHome, FaUsers } from "react-icons/fa";
+import {
+  FaBook,
+  FaCalendarAlt,
+  FaHome,
+  FaShoppingCart,
+  FaStar,
+  FaUsers,
+  FaWallet,
+  FaCalendarCheck,
+} from "react-icons/fa";
 import { ImSpoonKnife } from "react-icons/im";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { FiMenu } from "react-icons/fi";
 import { AiFillHome, AiTwotoneShopping } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
+import useAdmin from "../../Hooks/useAdmin";
 
 const DashboardSidebar = () => {
+  // const isAdmin = false;
+
+  const { isAdmin } = useAdmin();
+
   return (
     <ul className="menu py-12 pl-9 pr-3 w-80 bg-[#D1A054] text-base-content max-w-[280px] mx-auto uppercase">
       <div className="text-start text-xl uppercase font-cinzel mb-16">
@@ -20,31 +34,69 @@ const DashboardSidebar = () => {
         </p>
       </div>
       {/* <!-- Sidebar content here --> */}
-      <li>
-        <NavLink to="/dashboard/">
-          <AiFillHome className="h-[24px] w-[24px]" /> Admin Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/add-items">
-          <ImSpoonKnife className="h-[24px] w-[24px]" /> Add Items
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/manage-items">
-          <TfiMenuAlt className="h-[24px] w-[24px]" /> Mange Items
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/manage-bookings">
-          <FaBook className="h-[24px] w-[24px]" /> Manage Bookings
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/users">
-          <FaUsers className="h-[24px] w-[24px]" /> All Users
-        </NavLink>
-      </li>
+
+      {isAdmin ? (
+        <>
+          <li>
+            <NavLink to="/dashboard">
+              <AiFillHome className="h-[24px] w-[24px]" /> Admin Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/add-items">
+              <ImSpoonKnife className="h-[24px] w-[24px]" /> Add Items
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/manage-items">
+              <TfiMenuAlt className="h-[24px] w-[24px]" /> Mange Items
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/manage-bookings">
+              <FaBook className="h-[24px] w-[24px]" /> Manage Bookings
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/all-users">
+              <FaUsers className="h-[24px] w-[24px]" /> All Users
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <NavLink to="/dashboard/user">
+              <AiFillHome className="h-[24px] w-[24px]" /> User Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/reservation">
+              <FaCalendarAlt className="h-[24px] w-[24px]" /> Reservation
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/payment-history">
+              <FaWallet className="h-[24px] w-[24px]" /> Payment history
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/my-cart">
+              <FaShoppingCart className="h-[24px] w-[24px]" /> My cart
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/add-review">
+              <FaStar className="h-[24px] w-[24px]" /> add review
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/my-booking">
+              <FaCalendarCheck className="h-[24px] w-[24px]" /> My booking
+            </NavLink>
+          </li>
+        </>
+      )}
       <div className="divider before:bg-white after:bg-white"></div>
       <li>
         <NavLink to="/">

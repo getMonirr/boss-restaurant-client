@@ -1,22 +1,24 @@
 import { useForm } from "react-hook-form";
 
-import { FaFacebookF, FaGoogle, FaGithub } from "react-icons/fa";
-
 import loginBg from "../../assets/others/authentication.png";
 import loginBanner from "../../assets/others/authentication2.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import SocialSignIn from "../../components/SocialSignIn";
 
 const SignUp = () => {
-  const { googleSignIn, createUser, updateUserInfo } = useAuth();
+  const { createUser, updateUserInfo } = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-
     // create user
     if (data.email && data.password) {
       createUser(data.email, data.password)
@@ -27,7 +29,23 @@ const SignUp = () => {
           if (result.user) {
             updateUserInfo(result.user, data.name)
               .then(() => {
-                console.log(result.user, "successful");
+                navigate(from, { replace: true });
+
+                const users = {
+                  email: result.user.email,
+                  name: result.user.displayName,
+                };
+                fetch(`${import.meta.env.VITE_FETCH_URL}/users`, {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(users),
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    console.log(data);
+                  });
               })
               .catch((err) => {
                 console.log(err);
@@ -38,13 +56,6 @@ const SignUp = () => {
           console.log(err);
         });
     }
-  };
-
-  // handle google sign in
-  const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then((result) => console.log(result.user))
-      .catch((err) => console.log(err));
   };
 
   return (
@@ -132,20 +143,7 @@ const SignUp = () => {
                 </Link>
               </p>
               <p>Or sign up with</p>
-              <div className="flex justify-between items-center max-w-[200px] mx-auto mt-4">
-                <div className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer">
-                  <FaFacebookF />
-                </div>
-                <div
-                  onClick={handleGoogleSignIn}
-                  className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer"
-                >
-                  <FaGoogle />
-                </div>
-                <div className="bg-[#F1F2F4] border-2 border-dark-02 rounded-full p-3 cursor-pointer">
-                  <FaGithub />
-                </div>
-              </div>
+              <SocialSignIn />
             </div>
           </form>
         </div>

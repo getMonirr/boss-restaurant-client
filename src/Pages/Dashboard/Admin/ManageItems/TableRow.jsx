@@ -1,5 +1,5 @@
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
-import useCart from "../../../Hooks/useCart";
+import useCart from "../../../../Hooks/useCart";
 
 const TableRow = ({ item, index }) => {
   const { image, name, price, _id } = item;
@@ -27,10 +27,6 @@ const TableRow = ({ item, index }) => {
             <div className="mask mask-squircle w-12 h-12">
               <img src={image} alt={name} />
             </div>
-          </div>
-          <div>
-            <div className="font-bold">Hart Hagerty</div>
-            <div className="text-sm opacity-50">United States</div>
           </div>
         </div>
       </td>
